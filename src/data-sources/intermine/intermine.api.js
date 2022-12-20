@@ -1,10 +1,6 @@
 // dependencies
 const { RESTDataSource } = require('apollo-datasource-rest');
 const { UserInputError } = require('apollo-server');
-// local
-const models = require('./intermine.models.js');
-const pathquery = require('./intermine.pathquery.js');
-
 
 class IntermineAPI extends RESTDataSource {
 
@@ -30,6 +26,10 @@ class IntermineAPI extends RESTDataSource {
         };
         return this.get('search', params);
     }
+
+    inputError(msg) {
+        throw new UserInputError(msg);
+    }	
 
     ////////////////////
     // OBJECT GETTERS //
@@ -528,6 +528,12 @@ class IntermineAPI extends RESTDataSource {
 
 }
 
+
+const models = require('./intermine.models.js');
+IntermineAPI.prototype.models = models;
+
+const pathquery = require('./intermine.pathquery.js');
+IntermineAPI.prototype.pathquery = pathquery;
 
 const geneSearch = require('./api/gene-search.js');
 IntermineAPI.prototype.geneSearch = geneSearch;

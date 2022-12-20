@@ -662,12 +662,6 @@ const {
 // --------------------------------------
 module.exports = {
 
-    // Gene
-    intermineGeneAttributes,
-    intermineGeneSort,
-    graphqlGeneAttributes,
-    response2genes,
-
     // GeneFamilyAssignment
     intermineGeneFamilyAssignmentAttributes,
     intermineGeneFamilyAssignmentSort,
