@@ -528,14 +528,15 @@ class IntermineAPI extends RESTDataSource {
 
 }
 
-
-// add the models to the API class
-const models = require('./models');
-IntermineAPI.prototype.models = models;
-
 // add the pathquery functions to the API class
 const pathquery = require('./intermine.pathquery.js');
 IntermineAPI.prototype.pathquery = pathquery;
+
+
+// add the models to the API class
+const models = require('./models');
+models.pathquery = pathquery;
+IntermineAPI.prototype.models = models;
 
 // add the API methods to the class
 const apiMethods = require('./api');
