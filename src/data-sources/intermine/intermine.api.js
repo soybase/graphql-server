@@ -529,17 +529,19 @@ class IntermineAPI extends RESTDataSource {
 }
 
 
+// add the models to the API class
 const models = require('./models');
 IntermineAPI.prototype.models = models;
 
+// add the pathquery functions to the API class
 const pathquery = require('./intermine.pathquery.js');
 IntermineAPI.prototype.pathquery = pathquery;
 
-const geneSearch = require('./api/gene-search.js');
-IntermineAPI.prototype.geneSearch = geneSearch;
-
-const getGene = require('./api/get-gene.js');
-IntermineAPI.prototype.getGene = getGene;
+// add the API methods to the class
+const apiMethods = require('./api');
+for (const [key, value] of Object.entries(apiMethods)) {
+  IntermineAPI.prototype[key] = value;
+}
 
 
 module.exports = { IntermineAPI };
