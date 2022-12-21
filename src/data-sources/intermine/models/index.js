@@ -1,6 +1,6 @@
 // This file contains Intermine models and their corresponding GraphQL models,
 // and helper functions to convert between them.
-const { response2graphqlObjects } = require('./intermine.pathquery.js');
+const { response2graphqlObjects } = require('../intermine.pathquery.js');
 
 // --------------------------------------------------------------------------------------
 // IMPORTANT NOTE:
@@ -645,7 +645,7 @@ const intermineTraitOntologyTermsAttributes = [
 const intermineTraitOntologyTermsSort = 'Trait.ontologyTerms.identifier';
 
 
-const geneModels = require('./models/gene.js');
+const geneModels = require('./gene.js');
 
 
 // --------------------------------------
@@ -658,7 +658,7 @@ const geneModels = require('./models/gene.js');
 module.exports = {
 
     // GeneFamilyAssignment
-    ...geneModels
+    ...geneModels,
 
     // GeneFamily
     intermineGeneFamilyAttributes,
