@@ -645,12 +645,7 @@ const intermineTraitOntologyTermsAttributes = [
 const intermineTraitOntologyTermsSort = 'Trait.ontologyTerms.identifier';
 
 
-const {
-    intermineGeneAttributes,
-    intermineGeneSort,
-    graphqlGeneAttributes,
-    response2genes,
-} = require('./models/gene.js');
+const geneModels = require('./models/gene.js');
 
 
 // --------------------------------------
@@ -663,10 +658,7 @@ const {
 module.exports = {
 
     // GeneFamilyAssignment
-    intermineGeneFamilyAssignmentAttributes,
-    intermineGeneFamilyAssignmentSort,
-    graphqlGeneFamilyAssignmentAttributes,
-    response2geneFamilyAssignments,
+    ...geneModels
 
     // GeneFamily
     intermineGeneFamilyAttributes,
