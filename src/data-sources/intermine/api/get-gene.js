@@ -7,7 +7,7 @@ async function getGene(id) {
         constraints,
     );
     return this.pathQuery(query)
-        .then(this.models.response2genes)
+        .then((response) => this.models.response2genes(response))
         .then((genes) => {
             if (!genes.length) {
                 const msg = `Gene with ID '${id}' not found`;
